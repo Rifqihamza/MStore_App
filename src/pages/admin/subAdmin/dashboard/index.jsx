@@ -22,7 +22,7 @@ const DashboardAdmin = () => {
           {cardMonitor.map((card) => (
             <div
               key={card.id}
-              className="bg-white/10 backdrop-blur-md text-white px-6 py-5 flex flex-col gap-2 items-center rounded-xl shadow-md"
+              className="bg-white/10 backdrop-blur-md text-white px-6 py-5 flex flex-col gap-2 items-center rounded-xl shadow-md hover:[box-shadow:0_0_6px_2px_#fff] duration-300 ease-in"
             >
               <span className="text-4xl text-white">{card.icon}</span>
               <div className="text-center">
@@ -37,10 +37,10 @@ const DashboardAdmin = () => {
         id="Chart"
         className="grid grid-row sm:grid-cols-2 justify-center mt-8 gap-4"
       >
-        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md">
+        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md hover:[box-shadow:0_0_6px_2px_#fff] duration-300 ease-in">
           <LineCharts />
         </div>
-        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md">
+        <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md hover:[box-shadow:0_0_6px_2px_#fff] duration-300 ease-in">
           <PieCharts />
         </div>
       </section>

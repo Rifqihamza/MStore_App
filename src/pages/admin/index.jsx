@@ -5,19 +5,23 @@ import {
   FaHome,
   FaBox,
   FaClipboardList,
-  FaUsers,
   FaChartBar,
   FaCog,
 } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 const AdminPage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    sessionStorage.clear();
+    navigate("/");
+  };
   return (
     <>
       {/* Toggle Button */}
-      <nav className="bg-zinc-900 shadow-inner shadow-zinc-800 p-4 flex flex-row justify-between items-center">
+      <nav className="bg-zinc-950 p-4 flex flex-row justify-between items-center">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white text-2xl focus:outline-none"
@@ -28,9 +32,14 @@ const AdminPage = () => {
           <MenuButton className="text-white py-2 px-3 bg-zinc-800 rounded-lg">
             MStore Dashboard
           </MenuButton>
-        <MenuItems>
-          <MenuItem>Logout</MenuItem>
-        </MenuItems>
+          <MenuItems className="absolute right-0 mt-4 w-[15rem] p-2 text-white rounded-lg bg-zinc-800 shadow-inner shadow-zinc-900 z-50">
+            <MenuItem
+              as="div"
+              className="hover:bg-red-500 p-2 rounded-lg duration-300"
+            >
+              <button onClick={handleLogout}>Logout</button>
+            </MenuItem>
+          </MenuItems>
         </Menu>
       </nav>
 
@@ -46,7 +55,7 @@ const AdminPage = () => {
 
         {/* Sidebar */}
         <aside
-          className={`fixed left-0 top-0 h-full bg-zinc-900 shadow-inner shadow-zinc-800 text-white w-[15rem] transition-transform duration-300 z-50 ${
+          className={`fixed left-0 top-0 h-full bg-zinc-950 text-white w-[15rem] transition-transform duration-300 z-50 ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } lg:translate-x-0 lg:block`}
         >
@@ -65,11 +74,6 @@ const AdminPage = () => {
                   path: "/admin/orderList",
                 },
                 {
-                  icon: <FaUsers />,
-                  label: "Customers",
-                  path: "/admin/customers",
-                },
-                {
                   icon: <FaChartBar />,
                   label: "Report Sell",
                   path: "/admin/report",
@@ -80,15 +84,13 @@ const AdminPage = () => {
                   path: "/admin/settingAdmin",
                 },
               ].map((item, index) => (
-                <li
+                <Link
                   key={index}
                   className="flex flex-row gap-4 items-center py-2 px-4 hover:bg-zinc-700 rounded-lg duration-300"
+                  to={item.path}
                 >
-                  {item.icon}
-                  <Link className="text-lg" to={item.path}>
-                    {item.label}
-                  </Link>
-                </li>
+                  {item.icon} {item.label}
+                </Link>
               ))}
             </ul>
           </nav>

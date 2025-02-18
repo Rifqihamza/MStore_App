@@ -20,7 +20,6 @@ import DaftarTransaksi from "./subPages/daftarTransaksi";
 import AdminProducts from "./pages/admin/subAdmin/products";
 import DashboardAdmin from "./pages/admin/subAdmin/dashboard";
 import OrderList from "./pages/admin/subAdmin/orderList";
-import CustomersList from "./pages/admin/subAdmin/customers";
 import ReportSell from "./pages/admin/subAdmin/report";
 import SettingsAdmin from "./pages/admin/subAdmin/settingAdmin";
 
@@ -42,7 +41,6 @@ function App() {
             <Route path="dashboardAdmin" element={<DashboardAdmin />} />
             <Route path="products" element={<AdminProducts />} />
             <Route path="orderList" element={<OrderList />} />
-            <Route path="customers" element={<CustomersList />} />
             <Route path="report" element={<ReportSell />} />
             <Route path="settingAdmin" element={<SettingsAdmin />} />
           </Route>

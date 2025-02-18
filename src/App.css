@@ -1,0 +1,202 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../public/space_grotesk/SpaceGrotesk-VariableFont_wght.ttf");
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk";
+  background-color: black;
+}
+
+/* BG */
+.background {
+  opacity: 1;
+  background-image: linear-gradient(#3737377a 1px, transparent 1px),
+    linear-gradient(to right, #3737377a 1px, #000 1px);
+  background-size: 150px 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -999;
+}
+
+#containerLogin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#containerSignup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signUpInput {
+  width: 100%;
+  outline: none;
+  background-color: #ffffff25;
+  color: #fff;
+}
+.signUpInput::placeholder {
+  font-size: 13px;
+  transition: 0.5s all;
+  transform: translateY(0);
+}
+
+.signUpInput:focus::placeholder {
+  font-size: 8px;
+  transform: translateY(-0.8rem);
+  transition: 0.5s all;
+}
+.loginInput {
+  width: 100%;
+  outline: none;
+  background-color: #ffffff25;
+  color: #fff;
+}
+.loginInput::placeholder {
+  font-size: 13px;
+  transition: 0.5s all;
+  transform: translateY(0);
+}
+
+.loginInput:focus::placeholder {
+  font-size: 8px;
+  transform: translateY(-0.8rem);
+  transition: 0.5s all;
+}
+
+@media (max-width: 476px) {
+  .MyGradient {
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+}
+
+.MyGradient {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0)
+  );
+}
+/* Dropdown animation styles */
+.dropDown {
+  perspective: 5000px;
+}
+
+.dropDown [role="menu"] {
+  transform-origin: top center;
+  animation: dropdownOpen 0.2s ease-out forwards;
+}
+
+@keyframes dropdownOpen {
+  0% {
+    opacity: 0;
+    transform: rotateX(-10deg) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+}
+
+/* Optional: Add animation for closing */
+.dropDown [role="menu"][data-closing] {
+  animation: dropdownClose 0.2s ease-in forwards;
+}
+
+@keyframes dropdownClose {
+  0% {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(-10deg) translateY(-10px);
+  }
+}
+
+/* Main Style */
+@keyframes fadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.menuClose {
+  animation: slideLeft 0.3s;
+}
+.menuOpen {
+  animation: slideRight 0.3s;
+}
+
+#titleHero {
+  animation: fadeUp 0.8s ease-in;
+}
+
+#swiperDesktop {
+  animation: fadeIn 0.8s ease-in;
+}
+
+#CardMonitor,
+#Chart {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Table Biodata */
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
